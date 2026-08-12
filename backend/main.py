@@ -83,6 +83,48 @@ def health():
     }
 
 
+@app.get("/api/gemini-test")
+def gemini_test():
+    """Diagnóstico de la API key de Gemini"""
+    import requests as req
+    api_key = os.getenv("GEMINI_API_KEY", "NO_KEY")
+    results = []
+    test_payload = {
+        "contents": [{"parts": [{"text": "Di solo: hola"}]}]
+    }
+    tests = [
+        ("v1beta", "gemini-2.0-flash", "header"),
+        ("v1beta", "gemini-1.5-flash-latest", "header"),
+        ("v1beta", "gemini-2.0-flash", "param"),
+        ("v1", "gemini-2.0-flash", "param"),
+        ("v1beta", "gemini-pro", "param"),
+    ]
+    for version, model, auth_type in tests:
+        if auth_type == "header":
+            url = f"https://generativelanguage.googleapis.com/{version}/models/{model}:generateContent"
+            headers = {"Content-Type": "application/json", "x-goog-api-key": api_key}
+        else:
+            url = f"https://generativelanguage.googleapis.com/{version}/models/{model}:generateContent?key={api_key}"
+            headers = {"Content-Type": "application/json"}
+        try:
+            r = req.post(url, json=test_payload, headers=headers, timeout=15)
+            results.append({
+                "test": f"{version}/{model}/{auth_type}",
+                "status": r.status_code,
+                "ok": r.status_code == 200,
+                "response": r.text[:200] if r.status_code != 200 else "OK"
+            })
+            if r.status_code == 200:
+                break
+        except Exception as e:
+            results.append({"test": f"{version}/{model}/{auth_type}", "error": str(e)})
+    return {
+        "api_key_prefix": api_key[:10] + "...",
+        "api_key_set": bool(api_key and api_key != "NO_KEY"),
+        "results": results
+    }
+
+
 @app.get("/api/team")
 def get_team(refresh: bool = False):
     """Obtiene datos del equipo"""

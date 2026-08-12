@@ -37,21 +37,42 @@ def _call_gemini(prompt: str) -> str:
         }
     }
 
-    for model in models:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+    # Probar diferentes combinaciones de versión API, modelo y método de auth
+    attempts = [
+        ("v1beta", "gemini-2.0-flash", True),
+        ("v1beta", "gemini-1.5-flash-latest", True),
+        ("v1", "gemini-2.0-flash", True),
+        ("v1", "gemini-1.5-flash-latest", True),
+        ("v1beta", "gemini-2.0-flash", False),
+        ("v1beta", "gemini-1.5-flash-latest", False),
+        ("v1beta", "gemini-pro", True),
+        ("v1beta", "gemini-pro", False),
+    ]
+
+    last_error = ""
+    for api_version, model, use_header in attempts:
+        if use_header:
+            url = f"https://generativelanguage.googleapis.com/{api_version}/models/{model}:generateContent"
+            headers = {"Content-Type": "application/json", "x-goog-api-key": api_key}
+        else:
+            url = f"https://generativelanguage.googleapis.com/{api_version}/models/{model}:generateContent?key={api_key}"
+            headers = {"Content-Type": "application/json"}
         try:
-            resp = requests.post(url, json=payload, timeout=60)
+            resp = requests.post(url, json=payload, headers=headers, timeout=60)
             if resp.status_code == 200:
                 data = resp.json()
                 return data["candidates"][0]["content"]["parts"][0]["text"]
-            elif resp.status_code == 404:
-                continue  # probar siguiente modelo
+            elif resp.status_code in [404, 400]:
+                last_error = f"{resp.status_code}: {resp.text[:100]}"
+                continue
             else:
-                return f"Error API Gemini ({model}): {resp.status_code} - {resp.text[:300]}"
+                last_error = f"{resp.status_code}: {resp.text[:200]}"
+                continue
         except Exception as e:
+            last_error = str(e)
             continue
 
-    return "Error: No se pudo conectar con ningún modelo de Gemini"
+    return f"Error Gemini: {last_error}"
 
 
 class FantasyAIAgent:
