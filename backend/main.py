@@ -85,43 +85,55 @@ def health():
 
 @app.get("/api/gemini-test")
 def gemini_test():
-    """Diagnóstico de la API key de Gemini"""
+    """Diagnóstico de la API key de Gemini - lista modelos disponibles"""
     import requests as req
     api_key = os.getenv("GEMINI_API_KEY", "NO_KEY")
-    results = []
-    test_payload = {
-        "contents": [{"parts": [{"text": "Di solo: hola"}]}]
-    }
-    tests = [
-        ("v1beta", "gemini-2.0-flash", "header"),
-        ("v1beta", "gemini-1.5-flash-latest", "header"),
-        ("v1beta", "gemini-2.0-flash", "param"),
-        ("v1", "gemini-2.0-flash", "param"),
-        ("v1beta", "gemini-pro", "param"),
-    ]
-    for version, model, auth_type in tests:
-        if auth_type == "header":
-            url = f"https://generativelanguage.googleapis.com/{version}/models/{model}:generateContent"
-            headers = {"Content-Type": "application/json", "x-goog-api-key": api_key}
-        else:
+
+    # 1. Listar modelos disponibles
+    list_results = {}
+    for version in ["v1beta", "v1"]:
+        for auth_type in ["param", "header"]:
+            if auth_type == "param":
+                url = f"https://generativelanguage.googleapis.com/{version}/models?key={api_key}"
+                headers = {}
+            else:
+                url = f"https://generativelanguage.googleapis.com/{version}/models"
+                headers = {"x-goog-api-key": api_key}
+            try:
+                r = req.get(url, headers=headers, timeout=15)
+                key = f"{version}/{auth_type}"
+                if r.status_code == 200:
+                    data = r.json()
+                    models = [m.get("name","") for m in data.get("models", [])]
+                    list_results[key] = {"status": 200, "models": models[:10]}
+                else:
+                    list_results[key] = {"status": r.status_code, "error": r.text[:150]}
+            except Exception as e:
+                list_results[key] = {"error": str(e)}
+
+    # 2. Probar generación con el primer modelo encontrado
+    gen_result = {}
+    test_payload = {"contents": [{"parts": [{"text": "Di solo: hola"}]}]}
+    for version in ["v1beta", "v1"]:
+        for model in ["gemini-1.5-flash", "gemini-2.0-flash", "gemini-1.5-flash-001"]:
             url = f"https://generativelanguage.googleapis.com/{version}/models/{model}:generateContent?key={api_key}"
-            headers = {"Content-Type": "application/json"}
-        try:
-            r = req.post(url, json=test_payload, headers=headers, timeout=15)
-            results.append({
-                "test": f"{version}/{model}/{auth_type}",
-                "status": r.status_code,
-                "ok": r.status_code == 200,
-                "response": r.text[:200] if r.status_code != 200 else "OK"
-            })
-            if r.status_code == 200:
-                break
-        except Exception as e:
-            results.append({"test": f"{version}/{model}/{auth_type}", "error": str(e)})
+            try:
+                r = req.post(url, json=test_payload, timeout=15)
+                if r.status_code == 200:
+                    gen_result = {"ok": True, "model": f"{version}/{model}"}
+                    break
+                else:
+                    gen_result = {"status": r.status_code, "model": f"{version}/{model}", "error": r.text[:200]}
+            except Exception as e:
+                gen_result = {"error": str(e)}
+        if gen_result.get("ok"):
+            break
+
     return {
         "api_key_prefix": api_key[:10] + "...",
-        "api_key_set": bool(api_key and api_key != "NO_KEY"),
-        "results": results
+        "api_key_length": len(api_key),
+        "list_models": list_results,
+        "generation_test": gen_result
     }
 
 
