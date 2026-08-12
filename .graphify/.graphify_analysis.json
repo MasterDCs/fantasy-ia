@@ -1,0 +1,324 @@
+{
+  "communities": {
+    "0": [
+      "frontend_app",
+      "frontend_app_addchatmsg",
+      "frontend_app_alerticon",
+      "frontend_app_analyzeplayer",
+      "frontend_app_api",
+      "frontend_app_fmtmoney",
+      "frontend_app_hide",
+      "frontend_app_loaddashboard",
+      "frontend_app_loadmarket",
+      "frontend_app_loadteam",
+      "frontend_app_poslabel",
+      "frontend_app_quickchat",
+      "frontend_app_refreshdata",
+      "frontend_app_removetyping",
+      "frontend_app_renderalerts",
+      "frontend_app_runanalysis",
+      "frontend_app_sendchat",
+      "frontend_app_show",
+      "frontend_app_showtab",
+      "frontend_app_toast",
+      "frontend_app_urgencybadge"
+    ],
+    "1": [
+      "backend_main_analyze",
+      "backend_main_chat",
+      "backend_main_get_fantasy_data",
+      "backend_main_get_market",
+      "backend_main_get_team",
+      "backend_main_rationale_105",
+      "backend_main_rationale_119",
+      "backend_main_rationale_137",
+      "backend_main_rationale_55",
+      "backend_main_rationale_88"
+    ],
+    "2": [
+      "backend_fantasy_client",
+      "backend_fantasy_client_laligafantasyclient",
+      "backend_fantasy_client_laligafantasyclient_buy_player",
+      "backend_fantasy_client_laligafantasyclient_init",
+      "backend_fantasy_client_laligafantasyclient_sell_player",
+      "backend_fantasy_client_rationale_1",
+      "backend_fantasy_client_rationale_234",
+      "backend_fantasy_client_rationale_245"
+    ],
+    "3": [
+      "backend_ai_agent_fantasyaiagent",
+      "backend_ai_agent_fantasyaiagent_init",
+      "backend_main_actionrequest",
+      "backend_main_chatmessage",
+      "backend_main_lineuprequest",
+      "backend_main_playeranalysisrequest",
+      "basemodel"
+    ],
+    "4": [
+      "backend_main",
+      "backend_main_health",
+      "backend_main_market_action",
+      "backend_main_rationale_1",
+      "backend_main_rationale_183",
+      "backend_main_root",
+      "backend_main_serve_frontend"
+    ],
+    "5": [
+      "backend_ai_agent_fantasyaiagent_analyze_full",
+      "backend_ai_agent_fantasyaiagent_extract_players",
+      "backend_ai_agent_fantasyaiagent_prepare_data_summary",
+      "backend_ai_agent_rationale_145",
+      "backend_ai_agent_rationale_189",
+      "backend_ai_agent_rationale_29"
+    ],
+    "6": [
+      "backend_fantasy_client_laligafantasyclient_get_current_round",
+      "backend_fantasy_client_laligafantasyclient_get_full_data",
+      "backend_fantasy_client_laligafantasyclient_get_league_standings",
+      "backend_fantasy_client_rationale_176",
+      "backend_fantasy_client_rationale_197",
+      "backend_fantasy_client_rationale_256"
+    ],
+    "7": [
+      "backend_fantasy_client_laligafantasyclient_get_my_leagues",
+      "backend_fantasy_client_laligafantasyclient_get_my_team",
+      "backend_fantasy_client_rationale_108",
+      "backend_fantasy_client_rationale_77"
+    ],
+    "8": [
+      "backend_ai_agent_fantasyaiagent_analyze_player",
+      "backend_ai_agent_rationale_98"
+    ],
+    "9": [
+      "backend_ai_agent_fantasyaiagent_chat",
+      "backend_ai_agent_rationale_130"
+    ],
+    "10": [
+      "backend_ai_agent",
+      "backend_ai_agent_rationale_1"
+    ],
+    "11": [
+      "backend_fantasy_client_laligafantasyclient_get_market",
+      "backend_fantasy_client_rationale_153"
+    ],
+    "12": [
+      "backend_fantasy_client_laligafantasyclient_get_players_stats",
+      "backend_fantasy_client_rationale_130"
+    ],
+    "13": [
+      "backend_fantasy_client_laligafantasyclient_login",
+      "backend_fantasy_client_rationale_39"
+    ],
+    "14": [
+      "backend_fantasy_client_laligafantasyclient_set_lineup",
+      "backend_fantasy_client_rationale_212"
+    ],
+    "15": [
+      "backend_main_analyze_player",
+      "backend_main_rationale_155"
+    ],
+    "16": [
+      "backend_main_clear_cache",
+      "backend_main_rationale_209"
+    ],
+    "17": [
+      "backend_main_rationale_166",
+      "backend_main_set_lineup"
+    ]
+  },
+  "cohesion": {
+    "0": 0.2,
+    "1": 0.2,
+    "2": 0.25,
+    "3": 0.42857142857142855,
+    "4": 0.2857142857142857,
+    "5": 0.3333333333333333,
+    "6": 0.3333333333333333,
+    "7": 0.5,
+    "8": 1,
+    "9": 1,
+    "10": 1,
+    "11": 1,
+    "12": 1,
+    "13": 1,
+    "14": 1,
+    "15": 1,
+    "16": 1,
+    "17": 1
+  },
+  "gods": [
+    {
+      "id": "backend_fantasy_client_laligafantasyclient",
+      "label": "LaLigaFantasyClient",
+      "edges": 26,
+      "degree": 26
+    },
+    {
+      "id": "backend_ai_agent_fantasyaiagent",
+      "label": "FantasyAIAgent",
+      "edges": 20,
+      "degree": 20
+    },
+    {
+      "id": "backend_main_get_fantasy_data",
+      "label": "get_fantasy_data()",
+      "edges": 6,
+      "degree": 6
+    },
+    {
+      "id": "frontend_app_loaddashboard",
+      "label": "loadDashboard()",
+      "edges": 6,
+      "degree": 6
+    },
+    {
+      "id": "frontend_app_runanalysis",
+      "label": "runAnalysis()",
+      "edges": 5,
+      "degree": 5
+    },
+    {
+      "id": "frontend_app_loadteam",
+      "label": "loadTeam()",
+      "edges": 5,
+      "degree": 5
+    },
+    {
+      "id": "frontend_app_loadmarket",
+      "label": "loadMarket()",
+      "edges": 5,
+      "degree": 5
+    },
+    {
+      "id": "frontend_app_api",
+      "label": "api()",
+      "edges": 5,
+      "degree": 5
+    },
+    {
+      "id": "frontend_app_show",
+      "label": "show()",
+      "edges": 5,
+      "degree": 5
+    },
+    {
+      "id": "frontend_app_hide",
+      "label": "hide()",
+      "edges": 5,
+      "degree": 5
+    }
+  ],
+  "surprises": [
+    {
+      "source": "ActionRequest",
+      "target": "LaLigaFantasyClient",
+      "source_files": [
+        "backend/main.py",
+        "backend/fantasy_client.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "ChatMessage",
+      "target": "LaLigaFantasyClient",
+      "source_files": [
+        "backend/main.py",
+        "backend/fantasy_client.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "LineupRequest",
+      "target": "LaLigaFantasyClient",
+      "source_files": [
+        "backend/main.py",
+        "backend/fantasy_client.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "PlayerAnalysisRequest",
+      "target": "LaLigaFantasyClient",
+      "source_files": [
+        "backend/main.py",
+        "backend/fantasy_client.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "Servidor FastAPI — Fantasy IA Assistant",
+      "target": "FantasyAIAgent",
+      "source_files": [
+        "backend/main.py",
+        "backend/ai_agent.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `LaLigaFantasyClient` connect `Community 2` to `Community 6`, `Community 11`, `Community 7`, `Community 12`, `Community 13`, `Community 14`, `Community 3`, `Community 4`, `Community 1`, `Community 15`, `Community 17`, `Community 16`?",
+      "why": "High betweenness centrality (0.348) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `FantasyAIAgent` connect `Community 3` to `Community 10`, `Community 5`, `Community 8`, `Community 9`, `Community 4`, `Community 1`, `Community 15`, `Community 17`, `Community 16`?",
+      "why": "High betweenness centrality (0.217) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `ChatMessage` connect `Community 3` to `Community 4`, `Community 2`?",
+      "why": "High betweenness centrality (0.024) - this node is a cross-community bridge."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 13 inferred relationships involving `LaLigaFantasyClient` (e.g. with `ActionRequest` and `ChatMessage`) actually correct?",
+      "why": "`LaLigaFantasyClient` has 13 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 13 inferred relationships involving `FantasyAIAgent` (e.g. with `ActionRequest` and `ChatMessage`) actually correct?",
+      "why": "`FantasyAIAgent` has 13 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `Agente de IA con Google Gemini para análisis de Fantasy`, `Análisis completo del equipo con recomendaciones`, `Análisis específico de un jugador` to the rest of the system?",
+      "why": "19 weakly-connected nodes found - possible documentation gaps or missing edges."
+    }
+  ],
+  "labels": {
+    "0": "Community 0",
+    "1": "Community 1",
+    "2": "Community 2",
+    "3": "Community 3",
+    "4": "Community 4",
+    "5": "Community 5",
+    "6": "Community 6",
+    "7": "Community 7",
+    "8": "Community 8",
+    "9": "Community 9",
+    "10": "Community 10",
+    "11": "Community 11",
+    "12": "Community 12",
+    "13": "Community 13",
+    "14": "Community 14",
+    "15": "Community 15",
+    "16": "Community 16",
+    "17": "Community 17"
+  },
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

@@ -1,0 +1,2189 @@
+{
+  "nodes": [
+    {
+      "id": "backend_ai_agent",
+      "label": "ai_agent.py",
+      "file_type": "code",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_ai_agent_fantasyaiagent",
+      "label": "FantasyAIAgent",
+      "file_type": "code",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L21"
+    },
+    {
+      "id": "backend_ai_agent_fantasyaiagent_init",
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L22"
+    },
+    {
+      "id": "backend_ai_agent_fantasyaiagent_analyze_full",
+      "label": ".analyze_full()",
+      "file_type": "code",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L28"
+    },
+    {
+      "id": "backend_ai_agent_fantasyaiagent_analyze_player",
+      "label": ".analyze_player()",
+      "file_type": "code",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L97"
+    },
+    {
+      "id": "backend_ai_agent_fantasyaiagent_chat",
+      "label": ".chat()",
+      "file_type": "code",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L129"
+    },
+    {
+      "id": "backend_ai_agent_fantasyaiagent_prepare_data_summary",
+      "label": "._prepare_data_summary()",
+      "file_type": "code",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L144"
+    },
+    {
+      "id": "backend_ai_agent_fantasyaiagent_extract_players",
+      "label": "._extract_players()",
+      "file_type": "code",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L188"
+    },
+    {
+      "id": "backend_ai_agent_rationale_1",
+      "label": "Agente de IA con Google Gemini para análisis de Fantasy",
+      "file_type": "rationale",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_ai_agent_rationale_29",
+      "label": "Análisis completo del equipo con recomendaciones",
+      "file_type": "rationale",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L29"
+    },
+    {
+      "id": "backend_ai_agent_rationale_98",
+      "label": "Análisis específico de un jugador",
+      "file_type": "rationale",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L98"
+    },
+    {
+      "id": "backend_ai_agent_rationale_130",
+      "label": "Chat libre con el agente de fantasy",
+      "file_type": "rationale",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L130"
+    },
+    {
+      "id": "backend_ai_agent_rationale_145",
+      "label": "Prepara un resumen legible de los datos para la IA",
+      "file_type": "rationale",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L145"
+    },
+    {
+      "id": "backend_ai_agent_rationale_189",
+      "label": "Extrae la lista de jugadores del equipo",
+      "file_type": "rationale",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L189"
+    },
+    {
+      "id": "backend_fantasy_client",
+      "label": "fantasy_client.py",
+      "file_type": "code",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_fantasy_client_laligafantasyclient",
+      "label": "LaLigaFantasyClient",
+      "file_type": "code",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L26"
+    },
+    {
+      "id": "backend_fantasy_client_laligafantasyclient_init",
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L27"
+    },
+    {
+      "id": "backend_fantasy_client_laligafantasyclient_login",
+      "label": ".login()",
+      "file_type": "code",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L38"
+    },
+    {
+      "id": "backend_fantasy_client_laligafantasyclient_get_my_team",
+      "label": ".get_my_team()",
+      "file_type": "code",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L76"
+    },
+    {
+      "id": "backend_fantasy_client_laligafantasyclient_get_my_leagues",
+      "label": ".get_my_leagues()",
+      "file_type": "code",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L107"
+    },
+    {
+      "id": "backend_fantasy_client_laligafantasyclient_get_players_stats",
+      "label": ".get_players_stats()",
+      "file_type": "code",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L129"
+    },
+    {
+      "id": "backend_fantasy_client_laligafantasyclient_get_market",
+      "label": ".get_market()",
+      "file_type": "code",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L152"
+    },
+    {
+      "id": "backend_fantasy_client_laligafantasyclient_get_current_round",
+      "label": ".get_current_round()",
+      "file_type": "code",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L175"
+    },
+    {
+      "id": "backend_fantasy_client_laligafantasyclient_get_league_standings",
+      "label": ".get_league_standings()",
+      "file_type": "code",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L196"
+    },
+    {
+      "id": "backend_fantasy_client_laligafantasyclient_set_lineup",
+      "label": ".set_lineup()",
+      "file_type": "code",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L211"
+    },
+    {
+      "id": "backend_fantasy_client_laligafantasyclient_buy_player",
+      "label": ".buy_player()",
+      "file_type": "code",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L233"
+    },
+    {
+      "id": "backend_fantasy_client_laligafantasyclient_sell_player",
+      "label": ".sell_player()",
+      "file_type": "code",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L244"
+    },
+    {
+      "id": "backend_fantasy_client_laligafantasyclient_get_full_data",
+      "label": ".get_full_data()",
+      "file_type": "code",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L255"
+    },
+    {
+      "id": "backend_fantasy_client_rationale_1",
+      "label": "Cliente para LaLiga Fantasy Marca API\r Reverse-engineered de la app oficial",
+      "file_type": "rationale",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_fantasy_client_rationale_39",
+      "label": "Autenticación en LaLiga Fantasy",
+      "file_type": "rationale",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L39"
+    },
+    {
+      "id": "backend_fantasy_client_rationale_77",
+      "label": "Obtiene los datos del equipo del usuario",
+      "file_type": "rationale",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L77"
+    },
+    {
+      "id": "backend_fantasy_client_rationale_108",
+      "label": "Obtiene las ligas del usuario",
+      "file_type": "rationale",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L108"
+    },
+    {
+      "id": "backend_fantasy_client_rationale_130",
+      "label": "Obtiene estadísticas de todos los jugadores",
+      "file_type": "rationale",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L130"
+    },
+    {
+      "id": "backend_fantasy_client_rationale_153",
+      "label": "Obtiene el mercado de fichajes",
+      "file_type": "rationale",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L153"
+    },
+    {
+      "id": "backend_fantasy_client_rationale_176",
+      "label": "Obtiene información de la jornada actual",
+      "file_type": "rationale",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L176"
+    },
+    {
+      "id": "backend_fantasy_client_rationale_197",
+      "label": "Obtiene la clasificación de la liga",
+      "file_type": "rationale",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L197"
+    },
+    {
+      "id": "backend_fantasy_client_rationale_212",
+      "label": "Establece la alineación",
+      "file_type": "rationale",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L212"
+    },
+    {
+      "id": "backend_fantasy_client_rationale_234",
+      "label": "Ficha un jugador del mercado",
+      "file_type": "rationale",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L234"
+    },
+    {
+      "id": "backend_fantasy_client_rationale_245",
+      "label": "Vende un jugador al mercado",
+      "file_type": "rationale",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L245"
+    },
+    {
+      "id": "backend_fantasy_client_rationale_256",
+      "label": "Obtiene todos los datos necesarios para el análisis de IA",
+      "file_type": "rationale",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L256"
+    },
+    {
+      "id": "backend_main",
+      "label": "main.py",
+      "file_type": "code",
+      "source_file": "backend/main.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_main_chatmessage",
+      "label": "ChatMessage",
+      "file_type": "code",
+      "source_file": "backend/main.py",
+      "source_location": "L35"
+    },
+    {
+      "id": "basemodel",
+      "label": "BaseModel",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "backend_main_playeranalysisrequest",
+      "label": "PlayerAnalysisRequest",
+      "file_type": "code",
+      "source_file": "backend/main.py",
+      "source_location": "L39"
+    },
+    {
+      "id": "backend_main_lineuprequest",
+      "label": "LineupRequest",
+      "file_type": "code",
+      "source_file": "backend/main.py",
+      "source_location": "L43"
+    },
+    {
+      "id": "backend_main_actionrequest",
+      "label": "ActionRequest",
+      "file_type": "code",
+      "source_file": "backend/main.py",
+      "source_location": "L46"
+    },
+    {
+      "id": "backend_main_get_fantasy_data",
+      "label": "get_fantasy_data()",
+      "file_type": "code",
+      "source_file": "backend/main.py",
+      "source_location": "L54"
+    },
+    {
+      "id": "backend_main_root",
+      "label": "root()",
+      "file_type": "code",
+      "source_file": "backend/main.py",
+      "source_location": "L73"
+    },
+    {
+      "id": "backend_main_health",
+      "label": "health()",
+      "file_type": "code",
+      "source_file": "backend/main.py",
+      "source_location": "L78"
+    },
+    {
+      "id": "backend_main_get_team",
+      "label": "get_team()",
+      "file_type": "code",
+      "source_file": "backend/main.py",
+      "source_location": "L87"
+    },
+    {
+      "id": "backend_main_get_market",
+      "label": "get_market()",
+      "file_type": "code",
+      "source_file": "backend/main.py",
+      "source_location": "L104"
+    },
+    {
+      "id": "backend_main_analyze",
+      "label": "analyze()",
+      "file_type": "code",
+      "source_file": "backend/main.py",
+      "source_location": "L118"
+    },
+    {
+      "id": "backend_main_chat",
+      "label": "chat()",
+      "file_type": "code",
+      "source_file": "backend/main.py",
+      "source_location": "L136"
+    },
+    {
+      "id": "backend_main_analyze_player",
+      "label": "analyze_player()",
+      "file_type": "code",
+      "source_file": "backend/main.py",
+      "source_location": "L154"
+    },
+    {
+      "id": "backend_main_set_lineup",
+      "label": "set_lineup()",
+      "file_type": "code",
+      "source_file": "backend/main.py",
+      "source_location": "L165"
+    },
+    {
+      "id": "backend_main_market_action",
+      "label": "market_action()",
+      "file_type": "code",
+      "source_file": "backend/main.py",
+      "source_location": "L182"
+    },
+    {
+      "id": "backend_main_clear_cache",
+      "label": "clear_cache()",
+      "file_type": "code",
+      "source_file": "backend/main.py",
+      "source_location": "L208"
+    },
+    {
+      "id": "backend_main_serve_frontend",
+      "label": "serve_frontend()",
+      "file_type": "code",
+      "source_file": "backend/main.py",
+      "source_location": "L221"
+    },
+    {
+      "id": "backend_main_rationale_1",
+      "label": "Servidor FastAPI — Fantasy IA Assistant",
+      "file_type": "rationale",
+      "source_file": "backend/main.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_main_rationale_55",
+      "label": "Obtiene datos de Fantasy con caché",
+      "file_type": "rationale",
+      "source_file": "backend/main.py",
+      "source_location": "L55"
+    },
+    {
+      "id": "backend_main_rationale_88",
+      "label": "Obtiene datos del equipo",
+      "file_type": "rationale",
+      "source_file": "backend/main.py",
+      "source_location": "L88"
+    },
+    {
+      "id": "backend_main_rationale_105",
+      "label": "Obtiene el mercado de fichajes",
+      "file_type": "rationale",
+      "source_file": "backend/main.py",
+      "source_location": "L105"
+    },
+    {
+      "id": "backend_main_rationale_119",
+      "label": "Análisis completo con IA — endpoint principal",
+      "file_type": "rationale",
+      "source_file": "backend/main.py",
+      "source_location": "L119"
+    },
+    {
+      "id": "backend_main_rationale_137",
+      "label": "Chat libre con el agente de IA",
+      "file_type": "rationale",
+      "source_file": "backend/main.py",
+      "source_location": "L137"
+    },
+    {
+      "id": "backend_main_rationale_155",
+      "label": "Análisis de un jugador específico",
+      "file_type": "rationale",
+      "source_file": "backend/main.py",
+      "source_location": "L155"
+    },
+    {
+      "id": "backend_main_rationale_166",
+      "label": "Guarda la alineación aprobada",
+      "file_type": "rationale",
+      "source_file": "backend/main.py",
+      "source_location": "L166"
+    },
+    {
+      "id": "backend_main_rationale_183",
+      "label": "Ejecuta una acción de mercado (comprar/vender)",
+      "file_type": "rationale",
+      "source_file": "backend/main.py",
+      "source_location": "L183"
+    },
+    {
+      "id": "backend_main_rationale_209",
+      "label": "Limpia el caché para forzar datos frescos",
+      "file_type": "rationale",
+      "source_file": "backend/main.py",
+      "source_location": "L209"
+    },
+    {
+      "id": "frontend_app",
+      "label": "app.js",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_app_showtab",
+      "label": "showTab()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L5"
+    },
+    {
+      "id": "frontend_app_toast",
+      "label": "toast()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L16"
+    },
+    {
+      "id": "frontend_app_fmtmoney",
+      "label": "fmtMoney()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L24"
+    },
+    {
+      "id": "frontend_app_poslabel",
+      "label": "posLabel()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L31"
+    },
+    {
+      "id": "frontend_app_urgencybadge",
+      "label": "urgencyBadge()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L37"
+    },
+    {
+      "id": "frontend_app_alerticon",
+      "label": "alertIcon()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L43"
+    },
+    {
+      "id": "frontend_app_loaddashboard",
+      "label": "loadDashboard()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L49"
+    },
+    {
+      "id": "frontend_app_runanalysis",
+      "label": "runAnalysis()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L86"
+    },
+    {
+      "id": "frontend_app_renderalerts",
+      "label": "renderAlerts()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L194"
+    },
+    {
+      "id": "frontend_app_loadteam",
+      "label": "loadTeam()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L203"
+    },
+    {
+      "id": "frontend_app_loadmarket",
+      "label": "loadMarket()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L244"
+    },
+    {
+      "id": "frontend_app_analyzeplayer",
+      "label": "analyzePlayer()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L277"
+    },
+    {
+      "id": "frontend_app_sendchat",
+      "label": "sendChat()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L298"
+    },
+    {
+      "id": "frontend_app_quickchat",
+      "label": "quickChat()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L324"
+    },
+    {
+      "id": "frontend_app_addchatmsg",
+      "label": "addChatMsg()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L329"
+    },
+    {
+      "id": "frontend_app_removetyping",
+      "label": "removeTyping()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L339"
+    },
+    {
+      "id": "frontend_app_refreshdata",
+      "label": "refreshData()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L345"
+    },
+    {
+      "id": "frontend_app_api",
+      "label": "api()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L352"
+    },
+    {
+      "id": "frontend_app_show",
+      "label": "show()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L358"
+    },
+    {
+      "id": "frontend_app_hide",
+      "label": "hide()",
+      "file_type": "code",
+      "source_file": "frontend/app.js",
+      "source_location": "L359"
+    }
+  ],
+  "edges": [
+    {
+      "source": "backend_ai_agent",
+      "target": "os",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L4",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent",
+      "target": "json",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L5",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent",
+      "target": "typing",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L6",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent",
+      "target": "google_generativeai",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L7",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent",
+      "target": "dotenv",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L8",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent",
+      "target": "backend_ai_agent_fantasyaiagent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L21",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent_fantasyaiagent",
+      "target": "backend_ai_agent_fantasyaiagent_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L22",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent_fantasyaiagent",
+      "target": "backend_ai_agent_fantasyaiagent_analyze_full",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L28",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent_fantasyaiagent",
+      "target": "backend_ai_agent_fantasyaiagent_analyze_player",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L97",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent_fantasyaiagent",
+      "target": "backend_ai_agent_fantasyaiagent_chat",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L129",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent_fantasyaiagent",
+      "target": "backend_ai_agent_fantasyaiagent_prepare_data_summary",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L144",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent_fantasyaiagent",
+      "target": "backend_ai_agent_fantasyaiagent_extract_players",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L188",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent_fantasyaiagent_analyze_full",
+      "target": "backend_ai_agent_fantasyaiagent_prepare_data_summary",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L32",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent_fantasyaiagent_prepare_data_summary",
+      "target": "backend_ai_agent_fantasyaiagent_extract_players",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L159",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent_rationale_1",
+      "target": "backend_ai_agent",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L1",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent_rationale_29",
+      "target": "backend_ai_agent_fantasyaiagent_analyze_full",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L29",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent_rationale_98",
+      "target": "backend_ai_agent_fantasyaiagent_analyze_player",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L98",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent_rationale_130",
+      "target": "backend_ai_agent_fantasyaiagent_chat",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L130",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent_rationale_145",
+      "target": "backend_ai_agent_fantasyaiagent_prepare_data_summary",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L145",
+      "weight": 1
+    },
+    {
+      "source": "backend_ai_agent_rationale_189",
+      "target": "backend_ai_agent_fantasyaiagent_extract_players",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/ai_agent.py",
+      "source_location": "L189",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client",
+      "target": "os",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L5",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client",
+      "target": "requests",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L6",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client",
+      "target": "json",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L7",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client",
+      "target": "urllib3",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L8",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client",
+      "target": "typing",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L9",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client",
+      "target": "dotenv",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L10",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client",
+      "target": "backend_fantasy_client_laligafantasyclient",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L26",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient",
+      "target": "backend_fantasy_client_laligafantasyclient_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L27",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient",
+      "target": "backend_fantasy_client_laligafantasyclient_login",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L38",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient",
+      "target": "backend_fantasy_client_laligafantasyclient_get_my_team",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L76",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient",
+      "target": "backend_fantasy_client_laligafantasyclient_get_my_leagues",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L107",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient",
+      "target": "backend_fantasy_client_laligafantasyclient_get_players_stats",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L129",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient",
+      "target": "backend_fantasy_client_laligafantasyclient_get_market",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L152",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient",
+      "target": "backend_fantasy_client_laligafantasyclient_get_current_round",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L175",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient",
+      "target": "backend_fantasy_client_laligafantasyclient_get_league_standings",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L196",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient",
+      "target": "backend_fantasy_client_laligafantasyclient_set_lineup",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L211",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient",
+      "target": "backend_fantasy_client_laligafantasyclient_buy_player",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L233",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient",
+      "target": "backend_fantasy_client_laligafantasyclient_sell_player",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L244",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient",
+      "target": "backend_fantasy_client_laligafantasyclient_get_full_data",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L255",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient_get_my_team",
+      "target": "backend_fantasy_client_laligafantasyclient_get_my_leagues",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L80",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient_get_full_data",
+      "target": "backend_fantasy_client_laligafantasyclient_login",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L270",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient_get_full_data",
+      "target": "backend_fantasy_client_laligafantasyclient_get_my_team",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L276",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient_get_full_data",
+      "target": "backend_fantasy_client_laligafantasyclient_get_my_leagues",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L277",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient_get_full_data",
+      "target": "backend_fantasy_client_laligafantasyclient_get_market",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L278",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient_get_full_data",
+      "target": "backend_fantasy_client_laligafantasyclient_get_current_round",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L279",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient_get_full_data",
+      "target": "backend_fantasy_client_laligafantasyclient_get_league_standings",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L280",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_laligafantasyclient_get_full_data",
+      "target": "backend_fantasy_client_laligafantasyclient_get_players_stats",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L281",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_rationale_1",
+      "target": "backend_fantasy_client",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L1",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_rationale_39",
+      "target": "backend_fantasy_client_laligafantasyclient_login",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L39",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_rationale_77",
+      "target": "backend_fantasy_client_laligafantasyclient_get_my_team",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L77",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_rationale_108",
+      "target": "backend_fantasy_client_laligafantasyclient_get_my_leagues",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L108",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_rationale_130",
+      "target": "backend_fantasy_client_laligafantasyclient_get_players_stats",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L130",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_rationale_153",
+      "target": "backend_fantasy_client_laligafantasyclient_get_market",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L153",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_rationale_176",
+      "target": "backend_fantasy_client_laligafantasyclient_get_current_round",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L176",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_rationale_197",
+      "target": "backend_fantasy_client_laligafantasyclient_get_league_standings",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L197",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_rationale_212",
+      "target": "backend_fantasy_client_laligafantasyclient_set_lineup",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L212",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_rationale_234",
+      "target": "backend_fantasy_client_laligafantasyclient_buy_player",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L234",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_rationale_245",
+      "target": "backend_fantasy_client_laligafantasyclient_sell_player",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L245",
+      "weight": 1
+    },
+    {
+      "source": "backend_fantasy_client_rationale_256",
+      "target": "backend_fantasy_client_laligafantasyclient_get_full_data",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/fantasy_client.py",
+      "source_location": "L256",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "fastapi",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L4",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "fastapi_middleware_cors",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L5",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "fastapi_staticfiles",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L6",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "fastapi_responses",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L7",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "pydantic",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L8",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "typing",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L9",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "json",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L10",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "os",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L11",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "datetime",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L12",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "fantasy_client",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L14",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "ai_agent",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L15",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "backend_main_chatmessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L35",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_chatmessage",
+      "target": "basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L35",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "backend_main_playeranalysisrequest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L39",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_playeranalysisrequest",
+      "target": "basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L39",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "backend_main_lineuprequest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L43",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_lineuprequest",
+      "target": "basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L43",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "backend_main_actionrequest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L46",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_actionrequest",
+      "target": "basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L46",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "backend_main_get_fantasy_data",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L54",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "backend_main_root",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L73",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "backend_main_health",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L78",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "backend_main_get_team",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L87",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "backend_main_get_market",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L104",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "backend_main_analyze",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L118",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "backend_main_chat",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L136",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "backend_main_analyze_player",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L154",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "backend_main_set_lineup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L165",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "backend_main_market_action",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L182",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "backend_main_clear_cache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L208",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "backend_main_serve_frontend",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L221",
+      "weight": 1
+    },
+    {
+      "source": "backend_main",
+      "target": "uvicorn",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L228",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_get_team",
+      "target": "backend_main_get_fantasy_data",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L90",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_get_market",
+      "target": "backend_main_get_fantasy_data",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L107",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_analyze",
+      "target": "backend_main_get_fantasy_data",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L121",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_chat",
+      "target": "backend_main_get_fantasy_data",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L141",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_rationale_1",
+      "target": "backend_main",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L1",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_rationale_55",
+      "target": "backend_main_get_fantasy_data",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L55",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_rationale_88",
+      "target": "backend_main_get_team",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L88",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_rationale_105",
+      "target": "backend_main_get_market",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L105",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_rationale_119",
+      "target": "backend_main_analyze",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L119",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_rationale_137",
+      "target": "backend_main_chat",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L137",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_rationale_155",
+      "target": "backend_main_analyze_player",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L155",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_rationale_166",
+      "target": "backend_main_set_lineup",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L166",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_rationale_183",
+      "target": "backend_main_market_action",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L183",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_rationale_209",
+      "target": "backend_main_clear_cache",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L209",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_showtab",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L5",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_toast",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L16",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_fmtmoney",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L24",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_poslabel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L31",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_urgencybadge",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L37",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_alerticon",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L43",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_loaddashboard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L49",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_runanalysis",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L86",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_renderalerts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L194",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_loadteam",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L203",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_loadmarket",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L244",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_analyzeplayer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L277",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_sendchat",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L298",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_quickchat",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L324",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_addchatmsg",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L329",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_removetyping",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L339",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_refreshdata",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L345",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_api",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L352",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_show",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L358",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app",
+      "target": "frontend_app_hide",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L359",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_showtab",
+      "target": "frontend_app_loadteam",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L11",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_showtab",
+      "target": "frontend_app_loadmarket",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L12",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_loaddashboard",
+      "target": "frontend_app_show",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L50",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_loaddashboard",
+      "target": "frontend_app_hide",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L50",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_loaddashboard",
+      "target": "frontend_app_api",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L52",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_loaddashboard",
+      "target": "frontend_app_fmtmoney",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L61",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_runanalysis",
+      "target": "frontend_app_show",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L90",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_runanalysis",
+      "target": "frontend_app_api",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L95",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_runanalysis",
+      "target": "frontend_app_hide",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L96",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_runanalysis",
+      "target": "frontend_app_renderalerts",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L183",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_loadteam",
+      "target": "frontend_app_show",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L204",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_loadteam",
+      "target": "frontend_app_hide",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L204",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_loadteam",
+      "target": "frontend_app_api",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L206",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_loadmarket",
+      "target": "frontend_app_show",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L245",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_loadmarket",
+      "target": "frontend_app_hide",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L245",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_loadmarket",
+      "target": "frontend_app_api",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L247",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_analyzeplayer",
+      "target": "frontend_app_toast",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L279",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_sendchat",
+      "target": "frontend_app_addchatmsg",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L303",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_sendchat",
+      "target": "frontend_app_removetyping",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L314",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_quickchat",
+      "target": "frontend_app_sendchat",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L326",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_refreshdata",
+      "target": "frontend_app_toast",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L346",
+      "weight": 1
+    },
+    {
+      "source": "frontend_app_refreshdata",
+      "target": "frontend_app_loaddashboard",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app.js",
+      "source_location": "L348",
+      "weight": 1
+    },
+    {
+      "source": "backend_main_chatmessage",
+      "target": "backend_fantasy_client_laligafantasyclient",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L14",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_playeranalysisrequest",
+      "target": "backend_fantasy_client_laligafantasyclient",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L14",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_lineuprequest",
+      "target": "backend_fantasy_client_laligafantasyclient",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L14",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_actionrequest",
+      "target": "backend_fantasy_client_laligafantasyclient",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L14",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_rationale_1",
+      "target": "backend_fantasy_client_laligafantasyclient",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L14",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_rationale_55",
+      "target": "backend_fantasy_client_laligafantasyclient",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L14",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_rationale_88",
+      "target": "backend_fantasy_client_laligafantasyclient",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L14",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_rationale_105",
+      "target": "backend_fantasy_client_laligafantasyclient",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L14",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_rationale_119",
+      "target": "backend_fantasy_client_laligafantasyclient",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L14",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_rationale_137",
+      "target": "backend_fantasy_client_laligafantasyclient",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L14",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_rationale_155",
+      "target": "backend_fantasy_client_laligafantasyclient",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L14",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_rationale_166",
+      "target": "backend_fantasy_client_laligafantasyclient",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L14",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_rationale_209",
+      "target": "backend_fantasy_client_laligafantasyclient",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L14",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_chatmessage",
+      "target": "backend_ai_agent_fantasyaiagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L15",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_playeranalysisrequest",
+      "target": "backend_ai_agent_fantasyaiagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L15",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_lineuprequest",
+      "target": "backend_ai_agent_fantasyaiagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L15",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_actionrequest",
+      "target": "backend_ai_agent_fantasyaiagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L15",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_rationale_1",
+      "target": "backend_ai_agent_fantasyaiagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L15",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_rationale_55",
+      "target": "backend_ai_agent_fantasyaiagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L15",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_rationale_88",
+      "target": "backend_ai_agent_fantasyaiagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L15",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_rationale_105",
+      "target": "backend_ai_agent_fantasyaiagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L15",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_rationale_119",
+      "target": "backend_ai_agent_fantasyaiagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L15",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_rationale_137",
+      "target": "backend_ai_agent_fantasyaiagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L15",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_rationale_155",
+      "target": "backend_ai_agent_fantasyaiagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L15",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_rationale_166",
+      "target": "backend_ai_agent_fantasyaiagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L15",
+      "weight": 0.8
+    },
+    {
+      "source": "backend_main_rationale_209",
+      "target": "backend_ai_agent_fantasyaiagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L15",
+      "weight": 0.8
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "hyperedges": []
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
+<title>⚽ Fantasy IA</title>
+<meta name="description" content="Tu asistente IA para ganar en LaLiga Fantasy"/>
+<meta name="theme-color" content="#00d084"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="Fantasy IA"/>
+<link rel="manifest" href="/app/manifest.json"/>
+<link rel="apple-touch-icon" href="/app/icon-192.png"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--p:#00d084;--pd:#00a86b;--bg:#0d1117;--bg2:#161b22;--bg3:#21262d;--b:#30363d;--t:#e6edf3;--t2:#8b949e;--r:#f85149;--y:#d29922;--bl:#388bfd;--rad:12px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--t);min-height:100vh}
+header{background:var(--bg2);border-bottom:1px solid var(--b);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-size:19px;font-weight:700}.logo em{color:var(--p);font-style:normal}
+nav{background:var(--bg2);border-bottom:1px solid var(--b);display:flex;overflow-x:auto;padding:0 16px}
+nav button{background:none;border:none;color:var(--t2);padding:11px 14px;cursor:pointer;font-size:13px;font-weight:500;border-bottom:2px solid transparent;white-space:nowrap}
+nav button.active{color:var(--p);border-bottom-color:var(--p)}
+main{padding:18px;max-width:880px;margin:0 auto}
+.tab{display:none}.tab.active{display:block}
+.card{background:var(--bg2);border:1px solid var(--b);border-radius:var(--rad);padding:18px;margin-bottom:14px}
+.ctitle{font-size:15px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:7px}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:9px 16px;border-radius:8px;border:none;cursor:pointer;font-size:13px;font-weight:600;transition:all .2s}
+.bp{background:var(--p);color:#000}.bp:hover{background:var(--pd)}
+.bs{background:var(--bg3);color:var(--t);border:1px solid var(--b)}.bs:hover{border-color:var(--p);color:var(--p)}
+.bd{background:rgba(248,81,73,.15);color:var(--r);border:1px solid var(--r)}
+.bsm{padding:5px 11px;font-size:12px}.btn:disabled{opacity:.5;cursor:not-allowed}
+.badge{display:inline-block;padding:2px 7px;border-radius:20px;font-size:11px;font-weight:600}
+.bg{background:rgba(0,208,132,.2);color:var(--p)}.br{background:rgba(248,81,73,.2);color:var(--r)}
+.by{background:rgba(210,153,34,.2);color:var(--y)}.bb{background:rgba(56,139,253,.2);color:var(--bl)}
+.load{display:flex;align-items:center;justify-content:center;gap:10px;padding:36px;color:var(--t2)}
+.spin{width:22px;height:22px;border:3px solid var(--b);border-top-color:var(--p);border-radius:50%;animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-bottom:14px}
+.sbox{background:var(--bg3);border-radius:8px;padding:13px;text-align:center}
+.sv{font-size:22px;font-weight:700;color:var(--p)}.sl{font-size:11px;color:var(--t2);margin-top:3px}
+.pi{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--b)}
+.pi:last-child{border-bottom:none}.pl{display:flex;align-items:center;gap:9px}
+.pp{width:30px;height:30px;border-radius:6px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--t2);flex-shrink:0}
+.pp.POR{background:rgba(210,153,34,.2);color:var(--y)}.pp.DEF{background:rgba(56,139,253,.2);color:var(--bl)}
+.pp.MED{background:rgba(0,208,132,.2);color:var(--p)}.pp.DEL{background:rgba(248,81,73,.2);color:var(--r)}
+.pn{font-weight:500;font-size:13px}.pm{font-size:11px;color:var(--t2);margin-top:2px}
+.ai{display:flex;align-items:flex-start;gap:9px;padding:11px;background:var(--bg3);border-radius:8px;margin-bottom:7px}
+.aico{font-size:17px;flex-shrink:0}.atx{font-size:12px;line-height:1.5}.ath{font-weight:600;margin-bottom:2px}
+.tbox{background:linear-gradient(135deg,rgba(0,208,132,.08),rgba(56,139,253,.08));border:1px solid rgba(0,208,132,.25);border-radius:var(--rad);padding:15px 18px;margin-bottom:14px}
+.tbox .tl{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--p);margin-bottom:5px}
+.tbox p{font-size:13px;line-height:1.6}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.agrid{grid-template-columns:1fr}}
+.slabel{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--t2);margin-bottom:9px}
+.ri{display:flex;align-items:flex-start;gap:9px;padding:11px;background:var(--bg3);border-radius:8px;margin-bottom:7px}
+.rco{font-size:18px;flex-shrink:0}.rn{font-weight:600;font-size:13px}
+.rr{font-size:11px;color:var(--t2);margin-top:2px;line-height:1.4}.rp{font-size:11px;color:var(--p);font-weight:600;margin-top:2px}
+.lp{display:flex;align-items:center;justify-content:space-between;background:var(--bg3);padding:9px 13px;border-radius:8px;margin-bottom:5px}
+.cwrap{display:flex;flex-direction:column;height:500px}
+.cmsgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--bg3);border-radius:8px 8px 0 0}
+.msg{max-width:80%}.mu{align-self:flex-end}.ma{align-self:flex-start}
+.mb{padding:9px 13px;border-radius:12px;font-size:13px;line-height:1.5;white-space:pre-wrap}
+.mu .mb{background:var(--p);color:#000;border-radius:12px 12px 2px 12px}
+.ma .mb{background:var(--bg2);border:1px solid var(--b);border-radius:12px 12px 12px 2px}
+.cinput-row{display:flex;gap:7px;padding:11px;background:var(--bg2);border:1px solid var(--b);border-top:none;border-radius:0 0 8px 8px}
+.cinput{flex:1;background:var(--bg3);border:1px solid var(--b);border-radius:8px;padding:9px 13px;color:var(--t);font-size:13px;outline:none}
+.cinput:focus{border-color:var(--p)}
+.toast{position:fixed;bottom:18px;right:18px;background:var(--bg2);border:1px solid var(--b);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:9px;z-index:999;font-size:13px;transform:translateY(80px);opacity:0;transition:all .3s;max-width:320px}
+.toast.show{transform:translateY(0);opacity:1}.toast.ok{border-left:3px solid var(--p)}.toast.err{border-left:3px solid var(--r)}
+.es{text-align:center;padding:36px 18px;color:var(--t2)}.es .ei{font-size:44px;margin-bottom:14px}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--b);border-radius:2px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">⚽ <em>Fantasy</em> IA</div>
+  <button class="btn bs bsm" onclick="refreshData()">🔄 Actualizar</button>
+</header>
+<nav>
+  <button class="active" onclick="showTab('dashboard')">🏠 Dashboard</button>
+  <button onclick="showTab('analysis')">🤖 Análisis IA</button>
+  <button onclick="showTab('team')">👥 Equipo</button>
+  <button onclick="showTab('market')">💰 Mercado</button>
+  <button onclick="showTab('chat')">💬 Chat</button>
+</nav>
+<main>
+
+<!-- DASHBOARD -->
+<div id="tab-dashboard" class="tab active">
+  <div id="dload" class="load"><div class="spin"></div>&nbsp;Cargando...</div>
+  <div id="dcont" style="display:none">
+    <div class="sgrid" id="sgrid"></div>
+    <div id="tipbox"></div>
+    <div class="card"><div class="ctitle">📅 Jornada</div><div id="rinfo" style="font-size:13px;color:var(--t2)">—</div></div>
+    <div class="card"><div class="ctitle">⚠️ Alertas</div><div id="alerts"><p style="color:var(--t2);font-size:13px">Sin alertas</p></div></div>
+  </div>
+  <div id="derr" style="display:none" class="es">
+    <div class="ei">🔌</div>
+    <p id="derrmsg" style="margin-bottom:14px;font-size:13px"></p>
+    <button class="btn bp" onclick="loadDashboard()">Reintentar</button>
+  </div>
+</div>
+
+<!-- ANÁLISIS IA -->
+<div id="tab-analysis" class="tab">
+  <div style="display:flex;gap:10px;align-items:center;margin-bottom:18px;flex-wrap:wrap">
+    <button class="btn bp" onclick="runAnalysis()" id="btnA">🤖 Analizar equipo</button>
+    <span id="ats" style="font-size:11px;color:var(--t2)"></span>
+  </div>
+  <div id="aload" class="load" style="display:none"><div class="spin"></div>&nbsp;Analizando...</div>
+  <div id="acont"></div>
+</div>
+
+<!-- MI EQUIPO -->
+<div id="tab-team" class="tab">
+  <div id="tload" class="load"><div class="spin"></div>&nbsp;Cargando plantilla...</div>
+  <div id="tcont" style="display:none">
+    <div class="card"><div class="ctitle" id="ttitle">⚽ Mi Plantilla</div><div id="tplayers"></div></div>
+  </div>
+</div>
+
+<!-- MERCADO -->
+<div id="tab-market" class="tab">
+  <div id="mload" class="load"><div class="spin"></div>&nbsp;Cargando mercado...</div>
+  <div id="mcont" style="display:none">
+    <div class="card"><div class="ctitle">💰 Mercado</div><div id="mplayers"></div></div>
+  </div>
+</div>
+
+<!-- CHAT IA -->
+<div id="tab-chat" class="tab">
+  <div class="card" style="padding:0;overflow:hidden">
+    <div class="cwrap">
+      <div class="cmsgs" id="cmsgs">
+        <div class="msg ma"><div class="mb">¡Hola! Soy tu asistente de LaLiga Fantasy 🏆 Pregúntame lo que quieras: alineaciones, fichajes, estrategia... ¡Estoy aquí para ayudarte a ganar la liga!</div></div>
+      </div>
+      <div class="cinput-row">
+        <input class="cinput" id="cinput" placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter')sendChat()"/>
+        <button class="btn bp" onclick="sendChat()" id="btnChat">Enviar</button>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:12px">
+    <p style="font-size:11px;color:var(--t2);margin-bottom:8px">Preguntas rápidas:</p>
+    <div style="display:flex;flex-wrap:wrap;gap:6px">
+      <button class="btn bs bsm" onclick="quickChat('¿A quién debería poner de capitán esta jornada?')">👑 Capitán</button>
+      <button class="btn bs bsm" onclick="quickChat('¿Qué jugador debería fichar esta semana?')">🛒 Fichar</button>
+      <button class="btn bs bsm" onclick="quickChat('¿Quién debería vender para obtener más presupuesto?')">💸 Vender</button>
+      <button class="btn bs bsm" onclick="quickChat('¿Cuál es la mejor alineación para esta jornada?')">📋 Alineación</button>
+    </div>
+  </div>
+</div>
+
+</main>
+<div class="toast" id="toast"></div>
+<script src="/app/app.js"></script>
+</body>
+</html>

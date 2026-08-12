@@ -1,0 +1,24 @@
+# Credenciales — NUNCA subir a GitHub
+backend/.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+venv/
+.venv/
+env/
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.log
+
+# VS Code
+.vscode/
