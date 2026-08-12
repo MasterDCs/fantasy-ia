@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
+GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
 
 SYSTEM_PROMPT = """Eres un experto en LaLiga Fantasy con años de experiencia.
 Analiza los datos del equipo y el mercado y proporciona recomendaciones detalladas y precisas.
