@@ -32,6 +32,10 @@ CACHE_TTL = 300  # 5 minutos
 
 # ─── Modelos ───────────────────────────────────────────────────────────────────
 
+class TokenRequest(BaseModel):
+    token: str
+    user_id: Optional[str] = ""
+
 class ChatMessage(BaseModel):
     message: str
     include_team_context: bool = True
@@ -80,6 +84,57 @@ def health():
         "status": "running",
         "timestamp": datetime.now().isoformat(),
         "cache_entries": len(cache)
+    }
+
+
+@app.post("/api/token/set")
+def set_token(req: TokenRequest):
+    """Guarda el token de LaLiga Fantasy en el archivo .env local"""
+    try:
+        env_path = os.path.join(os.path.dirname(__file__), ".env")
+        # Leer .env actual
+        lines = []
+        if os.path.exists(env_path):
+            with open(env_path, "r") as f:
+                lines = f.readlines()
+        # Actualizar o añadir FANTASY_TOKEN
+        token_set = False
+        new_lines = []
+        for line in lines:
+            if line.startswith("FANTASY_TOKEN="):
+                new_lines.append(f"FANTASY_TOKEN={req.token}\n")
+                token_set = True
+            elif line.startswith("FANTASY_USER_ID=") and req.user_id:
+                new_lines.append(f"FANTASY_USER_ID={req.user_id}\n")
+            else:
+                new_lines.append(line)
+        if not token_set:
+            new_lines.append(f"FANTASY_TOKEN={req.token}\n")
+        if req.user_id:
+            has_uid = any(l.startswith("FANTASY_USER_ID=") for l in new_lines)
+            if not has_uid:
+                new_lines.append(f"FANTASY_USER_ID={req.user_id}\n")
+        with open(env_path, "w") as f:
+            f.writelines(new_lines)
+        # También configurar en el entorno actual
+        os.environ["FANTASY_TOKEN"] = req.token
+        if req.user_id:
+            os.environ["FANTASY_USER_ID"] = req.user_id
+        # Limpiar caché
+        cache.clear()
+        return {"success": True, "message": "Token guardado. Los datos del equipo se cargarán ahora."}
+    except Exception as e:
+        return {"success": False, "error": str(e)}
+
+
+@app.get("/api/token/status")
+def token_status():
+    """Verifica si hay un token configurado"""
+    token = os.getenv("FANTASY_TOKEN", "")
+    return {
+        "has_token": bool(token),
+        "token_prefix": token[:20] + "..." if token else None,
+        "user_id": os.getenv("FANTASY_USER_ID", "")
     }
 
 

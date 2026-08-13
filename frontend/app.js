@@ -359,9 +359,60 @@ async function api(path) {
 function show(id) { const el = document.getElementById(id); if (el) el.style.display = 'flex'; }
 function hide(id) { const el = document.getElementById(id); if (el) el.style.display = 'none'; }
 
+// ─── Token LaLiga Fantasy ──────────────────────────────────────────────────────
+async function saveToken() {
+  const token = document.getElementById('token-input').value.trim();
+  const userId = document.getElementById('userid-input').value.trim();
+  if (!token) { toast('Pega el token primero', 'err'); return; }
+
+  try {
+    const btn = document.querySelector('#token-modal .bp');
+    btn.disabled = true;
+    btn.textContent = 'Guardando...';
+
+    const res = await fetch(`${API}/api/token/set`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token, user_id: userId })
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      document.getElementById('token-modal').style.display = 'none';
+      // Actualizar botón del header
+      const btnC = document.getElementById('btn-connect');
+      if (btnC) { btnC.textContent = '✅ Conectado'; btnC.style.borderColor = 'var(--p)'; btnC.style.color = 'var(--p)'; }
+      toast('¡Cuenta conectada! Cargando tu equipo...');
+      // Recargar datos
+      await refreshData();
+      loadDashboard();
+    } else {
+      toast('Error: ' + (data.error || 'No se pudo guardar'), 'err');
+    }
+  } catch (e) {
+    toast('Error de conexión: ' + e.message, 'err');
+  } finally {
+    const btn = document.querySelector('#token-modal .bp');
+    if (btn) { btn.disabled = false; btn.textContent = 'Guardar y conectar'; }
+  }
+}
+
+async function checkTokenStatus() {
+  try {
+    const data = await api('/api/token/status');
+    const btnC = document.getElementById('btn-connect');
+    if (data.has_token && btnC) {
+      btnC.textContent = '✅ Conectado';
+      btnC.style.borderColor = 'var(--p)';
+      btnC.style.color = 'var(--p)';
+    }
+  } catch (e) {}
+}
+
 // ─── Init ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   loadDashboard();
+  checkTokenStatus();
   // Registrar Service Worker para PWA
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/app/sw.js')
