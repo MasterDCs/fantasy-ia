@@ -1,6 +1,6 @@
 """
 Agente de IA con Google Gemini (HTTP directo, sin SDK)
-Usa gemini-2.5-flash — modelo disponible confirmado
+Modelos: gemini-2.5-flash, gemini-2.5-pro, gemini-2.5-flash-lite (confirmados disponibles)
 """
 import os
 import json
@@ -10,12 +10,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Modelos disponibles confirmados por listModels
+# Modelos disponibles confirmados por /api/gemini-test
 GEMINI_MODELS = [
     ("v1beta", "gemini-2.5-flash"),
+    ("v1beta", "gemini-2.5-pro"),
+    ("v1beta", "gemini-2.5-flash-lite"),
     ("v1beta", "gemini-flash-latest"),
-    ("v1beta", "gemini-pro-latest"),
-    ("v1", "gemini-2.5-flash"),
 ]
 
 SYSTEM_PROMPT = """Eres un experto en LaLiga Fantasy Marca con años de experiencia.
@@ -53,7 +53,24 @@ def _call_gemini(prompt: str) -> str:
     return f"Error Gemini: {last_error}"
 
 
+def _extract_json(text: str) -> str:
+    """Extrae el JSON de una respuesta que puede tener texto extra o markdown alrededor"""
+    # Limpiar bloques markdown tipo ```json ... ```
+    if "```json" in text:
+        text = text.split("```json")[1].split("```")[0]
+    elif "```" in text:
+        text = text.split("```")[1].split("```")[0]
+    text = text.strip()
+    # Buscar primer { y último } para extraer solo el JSON
+    start = text.find('{')
+    end = text.rfind('}')
+    if start != -1 and end != -1 and end > start:
+        return text[start:end + 1]
+    return text
+
+
 class FantasyAIAgent:
+
     def analyze_full(self, fantasy_data: Dict) -> Dict:
         """Análisis completo del equipo con recomendaciones"""
         data_summary = self._prepare_data_summary(fantasy_data)
@@ -63,7 +80,7 @@ class FantasyAIAgent:
             context = f"Datos reales del equipo:\n{json.dumps(data_summary, ensure_ascii=False, indent=2)}"
             mode = "con los datos reales del equipo"
         else:
-            context = "No hay datos del equipo disponibles por ahora (login de LaLiga Fantasy pendiente)."
+            context = "No hay datos del equipo disponibles (login de LaLiga Fantasy pendiente)."
             mode = "con consejos generales basados en la jornada actual de LaLiga"
 
         prompt = f"""
@@ -97,7 +114,7 @@ Devuelve EXACTAMENTE este JSON (sin texto adicional, sin markdown):
       {{"nombre": "Nombre real", "razon": "Motivo"}}
     ],
     "capitan": {{"nombre": "Nombre real", "razon": "Por qué capitán esta jornada"}},
-    "capitan_alternativo": {{"nombre": "Nombre real", "razon": "Alternativa si el primero no juega"}}
+    "capitan_alternativo": {{"nombre": "Nombre real", "razon": "Alternativa"}}
   }},
   "mercado": {{
     "vender": [
@@ -108,27 +125,19 @@ Devuelve EXACTAMENTE este JSON (sin texto adicional, sin markdown):
     ]
   }},
   "alertas": [
-    {{"tipo": "lesion", "jugador": "Nombre real", "mensaje": "Está lesionado / sancionado / en duda"}}
+    {{"tipo": "lesion", "jugador": "Nombre real", "mensaje": "Detalle"}}
   ],
-  "estrategia_jornada": "Descripción detallada de la estrategia para maximizar puntos",
+  "estrategia_jornada": "Estrategia detallada para maximizar puntos",
   "puntuacion_estimada": "Entre X y Y puntos esperados",
-  "consejo_experto": "El consejo más importante y concreto para ganar esta semana"
+  "consejo_experto": "El consejo más importante para ganar esta semana"
 }}
 """
         try:
             text = _call_gemini(prompt).strip()
-            # Limpiar markdown si lo hay
-            if text.startswith("```json"):
-                text = text[7:]
-            if text.startswith("```"):
-                text = text[3:]
-            if text.endswith("```"):
-                text = text[:-3]
-            text = text.strip()
-            result = json.loads(text)
+            json_text = _extract_json(text)
+            result = json.loads(json_text)
             return {"success": True, "analysis": result}
         except json.JSONDecodeError:
-            # Si no es JSON, devolver como texto libre
             return {"success": True, "analysis": {"texto_libre": text}, "warning": "Formato texto"}
         except Exception as e:
             return {"success": False, "error": str(e), "analysis": None}
@@ -154,28 +163,24 @@ Devuelve EXACTAMENTE este JSON (sin markdown):
 """
         try:
             text = _call_gemini(prompt).strip()
-            if text.startswith("```json"):
-                text = text[7:]
-            if text.startswith("```"):
-                text = text[3:]
-            if text.endswith("```"):
-                text = text[:-3]
-            return {"success": True, "analysis": json.loads(text.strip())}
+            json_text = _extract_json(text)
+            return {"success": True, "analysis": json.loads(json_text)}
         except Exception as e:
             return {"success": False, "error": str(e)}
 
     def chat(self, message: str, context: str = "") -> str:
         """Chat libre con el agente de fantasy"""
         prompt = f"""
-{"Contexto del equipo del usuario: " + context if context else "El usuario no tiene datos del equipo cargados."}
+{"Contexto del equipo del usuario: " + context if context else "El usuario no tiene datos del equipo cargados aún."}
 
 Pregunta: {message}
 
 Responde como experto en LaLiga Fantasy Marca. Sé muy concreto:
 - Menciona jugadores reales con sus nombres
-- Da precios aproximados cuando sea relevante  
+- Da precios aproximados cuando sea relevante
 - Justifica cada recomendación con datos reales (lesiones, rachas, próximos rivales)
 - Responde en español siempre
+- Máximo 3-4 párrafos, sin listas excesivas
 """
         return _call_gemini(prompt)
 
