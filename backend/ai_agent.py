@@ -12,10 +12,12 @@ load_dotenv()
 
 # Modelos disponibles confirmados por /api/gemini-test
 GEMINI_MODELS = [
-    ("v1beta", "gemini-2.5-flash"),
-    ("v1beta", "gemini-2.5-pro"),
     ("v1beta", "gemini-2.5-flash-lite"),
+    ("v1beta", "gemini-flash-lite-latest"),
+    ("v1beta", "gemini-2.5-flash"),
     ("v1beta", "gemini-flash-latest"),
+    ("v1beta", "gemini-pro-latest"),
+    ("v1beta", "gemini-2.5-pro"),
 ]
 
 SYSTEM_PROMPT = """Eres un experto en LaLiga Fantasy Marca con años de experiencia.
@@ -37,18 +39,28 @@ def _call_gemini(prompt: str) -> str:
         }
     }
 
+    import time
     last_error = ""
     for api_version, model in GEMINI_MODELS:
         url = f"https://generativelanguage.googleapis.com/{api_version}/models/{model}:generateContent?key={api_key}"
-        try:
-            resp = requests.post(url, json=payload, timeout=60)
-            if resp.status_code == 200:
-                data = resp.json()
-                return data["candidates"][0]["content"]["parts"][0]["text"]
-            else:
-                last_error = f"{api_version}/{model} → {resp.status_code}: {resp.text[:150]}"
-        except Exception as e:
-            last_error = str(e)
+        # Reintentar hasta 2 veces en caso de 503
+        for attempt in range(2):
+            try:
+                resp = requests.post(url, json=payload, timeout=60)
+                if resp.status_code == 200:
+                    data = resp.json()
+                    return data["candidates"][0]["content"]["parts"][0]["text"]
+                elif resp.status_code == 503:
+                    last_error = f"{api_version}/{model} → 503 (sobrecargado)"
+                    if attempt == 0:
+                        time.sleep(2)  # esperar 2s antes de reintentar
+                    break  # pasar al siguiente modelo
+                else:
+                    last_error = f"{api_version}/{model} → {resp.status_code}: {resp.text[:100]}"
+                    break
+            except Exception as e:
+                last_error = str(e)
+                break
 
     return f"Error Gemini: {last_error}"
 
