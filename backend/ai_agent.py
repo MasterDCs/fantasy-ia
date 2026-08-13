@@ -1,5 +1,6 @@
 """
 Agente de IA con Google Gemini (HTTP directo, sin SDK)
+Usa gemini-2.5-flash — modelo disponible confirmado
 """
 import os
 import json
@@ -9,11 +10,17 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
+# Modelos disponibles confirmados por listModels
+GEMINI_MODELS = [
+    ("v1beta", "gemini-2.5-flash"),
+    ("v1beta", "gemini-flash-latest"),
+    ("v1beta", "gemini-pro-latest"),
+    ("v1", "gemini-2.5-flash"),
+]
 
-SYSTEM_PROMPT = """Eres un experto en LaLiga Fantasy con años de experiencia.
-Analiza los datos del equipo y el mercado y proporciona recomendaciones detalladas y precisas.
-Siempre responde en español. Sé directo, concreto y justifica cada recomendación con datos."""
+SYSTEM_PROMPT = """Eres un experto en LaLiga Fantasy Marca con años de experiencia.
+Conoces a fondo a todos los jugadores de LaLiga, sus estadísticas, lesiones, rachas y valores en el juego.
+Siempre respondes en español. Eres directo, concreto y das recomendaciones específicas con jugadores reales."""
 
 
 def _call_gemini(prompt: str) -> str:
@@ -21,13 +28,6 @@ def _call_gemini(prompt: str) -> str:
     api_key = os.getenv("GEMINI_API_KEY", "")
     if not api_key:
         return "Error: GEMINI_API_KEY no configurada"
-
-    # Intentar con gemini-2.0-flash, si falla probar con gemini-1.5-flash-latest
-    models = [
-        "gemini-2.0-flash",
-        "gemini-1.5-flash-latest",
-        "gemini-1.5-pro-latest"
-    ]
 
     payload = {
         "contents": [{"parts": [{"text": SYSTEM_PROMPT + "\n\n" + prompt}]}],
@@ -37,40 +37,18 @@ def _call_gemini(prompt: str) -> str:
         }
     }
 
-    # Probar diferentes combinaciones de versión API, modelo y método de auth
-    attempts = [
-        ("v1beta", "gemini-2.0-flash", True),
-        ("v1beta", "gemini-1.5-flash-latest", True),
-        ("v1", "gemini-2.0-flash", True),
-        ("v1", "gemini-1.5-flash-latest", True),
-        ("v1beta", "gemini-2.0-flash", False),
-        ("v1beta", "gemini-1.5-flash-latest", False),
-        ("v1beta", "gemini-pro", True),
-        ("v1beta", "gemini-pro", False),
-    ]
-
     last_error = ""
-    for api_version, model, use_header in attempts:
-        if use_header:
-            url = f"https://generativelanguage.googleapis.com/{api_version}/models/{model}:generateContent"
-            headers = {"Content-Type": "application/json", "x-goog-api-key": api_key}
-        else:
-            url = f"https://generativelanguage.googleapis.com/{api_version}/models/{model}:generateContent?key={api_key}"
-            headers = {"Content-Type": "application/json"}
+    for api_version, model in GEMINI_MODELS:
+        url = f"https://generativelanguage.googleapis.com/{api_version}/models/{model}:generateContent?key={api_key}"
         try:
-            resp = requests.post(url, json=payload, headers=headers, timeout=60)
+            resp = requests.post(url, json=payload, timeout=60)
             if resp.status_code == 200:
                 data = resp.json()
                 return data["candidates"][0]["content"]["parts"][0]["text"]
-            elif resp.status_code in [404, 400]:
-                last_error = f"{resp.status_code}: {resp.text[:100]}"
-                continue
             else:
-                last_error = f"{resp.status_code}: {resp.text[:200]}"
-                continue
+                last_error = f"{api_version}/{model} → {resp.status_code}: {resp.text[:150]}"
         except Exception as e:
             last_error = str(e)
-            continue
 
     return f"Error Gemini: {last_error}"
 
@@ -79,52 +57,67 @@ class FantasyAIAgent:
     def analyze_full(self, fantasy_data: Dict) -> Dict:
         """Análisis completo del equipo con recomendaciones"""
         data_summary = self._prepare_data_summary(fantasy_data)
-        has_team_data = bool(data_summary.get("equipo"))
+        has_team_data = bool(data_summary.get("equipo") and data_summary["equipo"].get("jugadores"))
 
         if has_team_data:
             context = f"Datos reales del equipo:\n{json.dumps(data_summary, ensure_ascii=False, indent=2)}"
+            mode = "con los datos reales del equipo"
         else:
-            context = """No se pudieron obtener datos automáticos de LaLiga Fantasy (login pendiente de configurar).
-Proporciona consejos generales basados en la temporada actual de LaLiga para ayudar a ganar la liga."""
+            context = "No hay datos del equipo disponibles por ahora (login de LaLiga Fantasy pendiente)."
+            mode = "con consejos generales basados en la jornada actual de LaLiga"
 
         prompt = f"""
 {context}
 
-Genera un análisis completo de LaLiga Fantasy {"con los datos reales" if has_team_data else "con consejos generales para esta temporada"}.
+Genera un análisis completo de LaLiga Fantasy Marca {mode}.
+Usa jugadores reales de LaLiga y sé muy específico con nombres, precios y razonamientos.
 
-Devuelve EXACTAMENTE este JSON (sin texto adicional):
+Devuelve EXACTAMENTE este JSON (sin texto adicional, sin markdown):
 {{
-  "resumen_situacion": "Análisis de la situación actual",
-  "posicion_clasificacion": "Consejos sobre clasificación y estrategia de liga",
+  "resumen_situacion": "Análisis breve de la situación / contexto de la jornada",
+  "posicion_clasificacion": "Consejos para mejorar posición en la liga",
   "alineacion_optima": {{
     "formacion": "4-3-3",
     "titulares": [
-      {{"posicion": "POR", "nombre": "Jugador recomendado", "razon": "Motivo"}}
+      {{"posicion": "POR", "nombre": "Nombre real", "razon": "Motivo específico"}},
+      {{"posicion": "DEF", "nombre": "Nombre real", "razon": "Motivo específico"}},
+      {{"posicion": "DEF", "nombre": "Nombre real", "razon": "Motivo específico"}},
+      {{"posicion": "DEF", "nombre": "Nombre real", "razon": "Motivo específico"}},
+      {{"posicion": "DEF", "nombre": "Nombre real", "razon": "Motivo específico"}},
+      {{"posicion": "MED", "nombre": "Nombre real", "razon": "Motivo específico"}},
+      {{"posicion": "MED", "nombre": "Nombre real", "razon": "Motivo específico"}},
+      {{"posicion": "MED", "nombre": "Nombre real", "razon": "Motivo específico"}},
+      {{"posicion": "DEL", "nombre": "Nombre real", "razon": "Motivo específico"}},
+      {{"posicion": "DEL", "nombre": "Nombre real", "razon": "Motivo específico"}},
+      {{"posicion": "DEL", "nombre": "Nombre real", "razon": "Motivo específico"}}
     ],
     "suplentes": [
-      {{"nombre": "Jugador suplente", "razon": "Motivo"}}
+      {{"nombre": "Nombre real", "razon": "Motivo"}},
+      {{"nombre": "Nombre real", "razon": "Motivo"}},
+      {{"nombre": "Nombre real", "razon": "Motivo"}}
     ],
-    "capitan": {{"nombre": "Jugador capitán recomendado", "razon": "Por qué capitán esta jornada"}},
-    "capitan_alternativo": {{"nombre": "Alternativa capitán", "razon": "Por qué como alternativa"}}
+    "capitan": {{"nombre": "Nombre real", "razon": "Por qué capitán esta jornada"}},
+    "capitan_alternativo": {{"nombre": "Nombre real", "razon": "Alternativa si el primero no juega"}}
   }},
   "mercado": {{
     "vender": [
-      {{"nombre": "Jugador a vender", "precio_recomendado": 0, "urgencia": "media", "razon": "Motivo de venta"}}
+      {{"nombre": "Jugador real", "precio_recomendado": 5000000, "urgencia": "alta", "razon": "Motivo concreto"}}
     ],
     "fichar": [
-      {{"nombre": "Jugador a fichar", "precio_estimado": 0, "prioridad": "alta", "razon": "Motivo de fichaje"}}
+      {{"nombre": "Jugador real", "precio_estimado": 3000000, "prioridad": "alta", "razon": "Motivo concreto"}}
     ]
   }},
   "alertas": [
-    {{"tipo": "rendimiento", "jugador": "Jugador destacado", "mensaje": "Información relevante"}}
+    {{"tipo": "lesion", "jugador": "Nombre real", "mensaje": "Está lesionado / sancionado / en duda"}}
   ],
-  "estrategia_jornada": "Estrategia recomendada para maximizar puntos esta jornada",
-  "puntuacion_estimada": "Estimación de puntos esperados",
-  "consejo_experto": "El consejo más importante para ganar la liga esta semana"
+  "estrategia_jornada": "Descripción detallada de la estrategia para maximizar puntos",
+  "puntuacion_estimada": "Entre X y Y puntos esperados",
+  "consejo_experto": "El consejo más importante y concreto para ganar esta semana"
 }}
 """
         try:
             text = _call_gemini(prompt).strip()
+            # Limpiar markdown si lo hay
             if text.startswith("```json"):
                 text = text[7:]
             if text.startswith("```"):
@@ -135,6 +128,7 @@ Devuelve EXACTAMENTE este JSON (sin texto adicional):
             result = json.loads(text)
             return {"success": True, "analysis": result}
         except json.JSONDecodeError:
+            # Si no es JSON, devolver como texto libre
             return {"success": True, "analysis": {"texto_libre": text}, "warning": "Formato texto"}
         except Exception as e:
             return {"success": False, "error": str(e), "analysis": None}
@@ -142,20 +136,20 @@ Devuelve EXACTAMENTE este JSON (sin texto adicional):
     def analyze_player(self, player_name: str, context: str = "") -> Dict:
         """Análisis específico de un jugador"""
         prompt = f"""
-Analiza al jugador {player_name} para LaLiga Fantasy en la temporada actual.
-{f"Contexto: {context}" if context else ""}
+Analiza al jugador {player_name} para LaLiga Fantasy Marca en la temporada actual.
+{f"Contexto adicional: {context}" if context else ""}
 
-Devuelve EXACTAMENTE este JSON:
+Devuelve EXACTAMENTE este JSON (sin markdown):
 {{
   "jugador": "{player_name}",
   "valoracion_general": 7,
   "forma_actual": "buena",
-  "proximo_rival": "Equipo rival",
-  "dificultad_rival": "media",
-  "recomendacion": "mantener",
-  "razon_detallada": "Análisis detallado del jugador, su momento de forma, próximos partidos y valor en fantasy",
-  "precio_justo": 0,
-  "tendencia_precio": "estable"
+  "proximo_rival": "Nombre del rival próximo",
+  "dificultad_rival": "baja",
+  "recomendacion": "comprar",
+  "razon_detallada": "Análisis detallado: forma, estadísticas, próximos partidos y valor en fantasy",
+  "precio_justo": 5000000,
+  "tendencia_precio": "subiendo"
 }}
 """
         try:
@@ -173,12 +167,15 @@ Devuelve EXACTAMENTE este JSON:
     def chat(self, message: str, context: str = "") -> str:
         """Chat libre con el agente de fantasy"""
         prompt = f"""
-{"Contexto del equipo: " + context if context else "Sin datos específicos del equipo disponibles."}
+{"Contexto del equipo del usuario: " + context if context else "El usuario no tiene datos del equipo cargados."}
 
-Pregunta del usuario: {message}
+Pregunta: {message}
 
-Responde como experto en LaLiga Fantasy en español. Sé concreto, útil y da recomendaciones específicas.
-Menciona jugadores reales de LaLiga cuando sea relevante.
+Responde como experto en LaLiga Fantasy Marca. Sé muy concreto:
+- Menciona jugadores reales con sus nombres
+- Da precios aproximados cuando sea relevante  
+- Justifica cada recomendación con datos reales (lesiones, rachas, próximos rivales)
+- Responde en español siempre
 """
         return _call_gemini(prompt)
 
